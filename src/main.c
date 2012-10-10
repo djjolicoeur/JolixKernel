@@ -3,6 +3,7 @@
 
 #include "monitor.h"
 #include "descriptor_tables.h"
+#include "timer.h"
 
 int main(struct multiboot *mboot_ptr)
 {
@@ -14,6 +15,9 @@ int main(struct multiboot *mboot_ptr)
 	monitor_write("Hello Kernel");
 	asm volatile("int $0x03");
 	asm volatile("int $0x04");
+
+	asm volatile("sti");
+	init_timer(50);
 	
 	return 0;
 }

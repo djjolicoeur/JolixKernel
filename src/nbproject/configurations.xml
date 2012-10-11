@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="80">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df name="src" root=".">
+      <in>boot.s</in>
+      <in>common.c</in>
+      <in>common.h</in>
+      <in>descriptor_tables.c</in>
+      <in>descriptor_tables.h</in>
+      <in>gdt.s</in>
+      <in>interrupt.s</in>
+      <in>isr.c</in>
+      <in>isr.h</in>
+      <in>kheap.c</in>
+      <in>kheap.h</in>
+      <in>main.c</in>
+      <in>monitor.c</in>
+      <in>monitor.h</in>
+      <in>paging.c</in>
+      <in>paging.h</in>
+      <in>timer.c</in>
+      <in>timer.h</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+      </makefileType>
+      <item path="boot.s" ex="true" tool="4" flavor="0">
+      </item>
+      <item path="gdt.s" ex="true" tool="4" flavor="0">
+      </item>
+      <item path="interrupt.s" ex="true" tool="4" flavor="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

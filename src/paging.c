@@ -160,8 +160,8 @@ void page_fault(registers_t regs)
     if(rw) {monitor_write("read-only ");}
     if(us) {monitor_write("user-mode ");}
     if(reserved) { monitor_write("reserved ");}
-    monitor_write("} at 0x");
-    monitor_write_dec(faulting_address);
+    monitor_write("} at ");
+    monitor_write_hex(faulting_address);
     monitor_write("\n");
     PANIC("page fault");
 }

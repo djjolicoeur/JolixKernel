@@ -8,7 +8,7 @@ u16int *video_memory = (u16int *)0xB8000;
 u8int cursor_x = 0;
 u8int cursor_y = 0;
 
-static move_cursor()
+static void move_cursor()
 {
 	u16int cursorLocation = cursor_y * 80 + cursor_x;
 	outb(0x3D4, 14);
@@ -142,6 +142,47 @@ void monitor_write_dec(u32int n)
 		c2[i--] = c[j++];
 	}
 	monitor_write(c2);
+}
+
+
+void monitor_write_hex(u32int n)
+{
+    s32int tmp;
+    
+    monitor_write("0x");
+    
+    char no_zero = 1;
+    
+    int i;
+    for(i = 28; i > 0; i -=4 )
+    {
+        tmp = (n >> i) & 0xF;
+        if(tmp == 0 && no_zero != 0)
+        {
+            continue;
+        }
+        
+        if(tmp >= 0xA)
+        {
+            no_zero = 0;
+            monitor_put(tmp-0xA+'a');
+        }
+        else
+        {
+            no_zero = 0;
+            monitor_put(tmp+'0');
+        }
+    }
+    
+    tmp = n & 0xF;
+    if(tmp >= 0xA)
+    {
+        monitor_put(tmp-0xA-'a');
+    }
+    else
+    {
+        monitor_put(tmp+'0');
+    }
 }
 
 
